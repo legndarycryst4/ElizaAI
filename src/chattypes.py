@@ -1,21 +1,6 @@
 from typing import TypeAlias
 
-from openai.types.chat import (
-    ChatCompletionAssistantMessageParam,
-    ChatCompletionFunctionMessageParam,
-    ChatCompletionSystemMessageParam,
-    ChatCompletionToolMessageParam,
-    ChatCompletionUserMessageParam,
-)
-
-ChatCompletionMessage: TypeAlias = (
-    ChatCompletionSystemMessageParam
-    | ChatCompletionUserMessageParam
-    | ChatCompletionAssistantMessageParam
-    | ChatCompletionToolMessageParam
-    | ChatCompletionFunctionMessageParam
-)
-
+ChatCompletionMessage: TypeAlias = dict  # Llama 3.1 8B doesn't have predefined types like OpenAI
 
 class CustomMessage:
     author: str
@@ -28,4 +13,3 @@ class CustomMessage:
         self.content = content
         self.plattform = plattform
         self.answer = False
-        pass
