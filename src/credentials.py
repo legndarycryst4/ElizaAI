@@ -4,8 +4,8 @@ from decouple import config as environ  # type: ignore
 TWITCH_TOKEN = str(environ("TWITCH_TOKEN", ""))
 # Your TWITCH Channel Name
 TWITCH_CHANNEL = str(environ("TWITCH_CHANNEL", ""))
-# Your OpenAI API Key
-OPENAI_API_KEY = str(environ("OPENAI_API_KEY", ""))
+# Your Llama Model Path
+LLAMA_MODEL_PATH = str(environ("LLAMA_MODEL_PATH", ""))
 # Your Google Cloud JSON Path
 GOOGLE_JSON_PATH = str(environ("GOOGLE_JSON_PATH", ""))
 # Your BOT_NAME, example = Neuro-sama
