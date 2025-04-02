@@ -1,12 +1,18 @@
 from .generate_audio import play_audio
-from .openai import openai
-
+import requests
+from .credentials import ELEVENLABS_APIKEY, ELEVENLABS_VOICEID
 
 def generate_audio_and_subtitle(
     user_question: str, bot_response: str, audio_filename="audio.mp3"
 ):
     text_to_transform_to_audio = user_question + "? " + bot_response
-    response = openai.audio.speech.create(
-        model="tts-1", voice="nova", input=text_to_transform_to_audio
+    
+    response = requests.post(
+        f"https://api.elevenlabs.io/v1/text-to-speech/{ELEVENLABS_VOICEID}",
+        json={"text": text_to_transform_to_audio},
+        headers={"xi-api-key": ELEVENLABS_APIKEY, "Content-Type": "application/json"},
     )
-    play_audio(audio_filename, response.content)
+
+    with open(audio_filename, "wb") as f:
+        f.write(response.content)
+    play_audio(audio_filename)
