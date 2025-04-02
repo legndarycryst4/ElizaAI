@@ -1,5 +1,4 @@
-from openai import OpenAI
+from llama_cpp import Llama
+from .credentials import LLAMA_MODEL_PATH  # Ensure this points to your model file
 
-from .credentials import OPENAI_API_KEY
-
-openai = OpenAI(api_key=OPENAI_API_KEY)
+llama = Llama(model_path=LLAMA_MODEL_PATH)
