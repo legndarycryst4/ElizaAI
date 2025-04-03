@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "neuro-sama"
+name = "elizaai"
 version = "0.0.0"
 description = ""
-authors = ["maurosanchezv <minecraftultimatum39@gmail.com>"]
+authors = ["legndarycryst4 <legndarycryst4@gmail.com>"]
 readme = "README.md"
 packages = [
     { include = "src" },
